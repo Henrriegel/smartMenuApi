@@ -12,11 +12,18 @@ module Api
 
             # Read one user with id
             def show
-                user = User.find(params[:id])
-                render json: {
-                    errorMessage: "",
-                    data: user
-                }, status: :ok
+                user = User.find(params[:id]) rescue nil
+                if user
+                    render json: {
+                        errorMessage: "",
+                        data: user
+                    }, status: :ok
+                else
+                    render json: {
+                        errorMessage: "User not found",
+                        data: ""
+                    }, status: :unprocessable_entity
+                end
             end
 
             # Create new user
@@ -53,15 +60,22 @@ module Api
 
             # Update user
             def update
-                user = User.find(params[:id])
-                if user.update(user_params)
-                    render json: {
-                        errorMessage: "",
-                        data: user
-                    }, status: :ok
+                user = User.find(params[:id]) rescue nil
+                if user
+                    if user.update(user_params)
+                        render json: {
+                            errorMessage: "",
+                            data: user
+                        }, status: :ok
+                    else
+                        render json: {
+                            errorMessage: user.errors,
+                            data: ""
+                        }, status: :unprocessable_entity
+                    end 
                 else
                     render json: {
-                        errorMessage: user.errors,
+                        errorMessage: "User not found",
                         data: ""
                     }, status: :unprocessable_entity
                 end
