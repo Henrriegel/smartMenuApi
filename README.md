@@ -1,4 +1,8 @@
-# SmartMenuApp
+# SmartMenuApp.
+
+## Important!
+
+This Api was made for the proyect [cuino_website](https://github.com/Adro312/Cuino-Website/blob/main/README.md) in order to get data from users <br>
 
 ## Project Goal
 
@@ -34,7 +38,3 @@ npm start
 [Ramírez Olvera Angel Daniel](https://github.com/Adro312) <br>
 [Papalotzi Loaiza Uriel](https://github.com/UriLP) <br>
 [Rafael Ramírez Corrales](https://github.com)<br>
-
-## Beholders:
-
-[Hernández Hernández Bryant](https://github.com/Mestizo1001)
